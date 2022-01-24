@@ -1,0 +1,112 @@
+
+    <div class="container">
+        <div class="content text-center">
+    <h2 class="text-center">Enter your information</h2>
+    <form [formGroup]="form"  (ngSubmit)="onSubmit(form)">
+        <div>
+        <input 
+        formControlName="id" 
+        id="id"
+        type="number"
+     placeholder="enter your id"/>
+     
+     <div *ngIf="form.get('id').errors?.required && isSubmitted" class="text-danger" >id is required</div>
+    </div>
+    
+    <div>
+  <input 
+     formControlName="name" 
+     id="name"
+     type="text"
+  placeholder="enter your name"/>
+  <div *ngIf="form.get('name').errors?.required && isSubmitted" class="text-danger" >name is required</div>
+  <div *ngIf="form.get('name').errors?.minlength && isSubmitted" class="text-danger" >name must contain at least 5 characters </div>
+
+</div>
+
+<div>
+  <input 
+  formControlName="familyName" 
+  id="familyName"
+  type="text"
+placeholder="enter your familyname"/>
+<div *ngIf="form.get('familyName').errors?.required && isSubmitted" class="text-danger" >familyName is required</div>
+<div *ngIf="form.get('familyName').errors?.minlength && isSubmitted" class="text-danger" >familyName must contain at least 5 characters</div>
+
+</div>
+<div>
+<input 
+formControlName="address" 
+id="address"
+type="text"
+placeholder="enter your address"/>
+<div *ngIf="form.get('address').errors?.required && isSubmitted" class="text-danger" >address is required</div>
+<div *ngIf="form.get('address').errors?.minlength && isSubmitted" class="text-danger" >address must contain at least 10 characters </div>
+
+</div>
+
+<div>
+<input 
+formControlName="country" 
+id="country"
+type="text"
+placeholder="enter your country"/>
+<div *ngIf="form.get('country').errors?.required && isSubmitted" class="text-danger" >country is required</div>
+
+</div>
+<div>
+<input 
+formControlName="email" 
+id="email"
+type="text"
+placeholder="enter your email"/>
+<div *ngIf="form.get('email').errors?.required && isSubmitted" class="text-danger" >email is required</div>
+<div *ngIf="form.get('email').errors?.email && isSubmitted" class="text-danger" >enter valid email address </div>
+
+</div>
+
+<div>
+    <input 
+    formControlName="age" 
+    id="age"
+    type="text"
+    placeholder="enter your age"/>
+    <div *ngIf="form.get('age').errors?.required && isSubmitted" class="text-danger" >age is required</div>
+<div *ngIf="form.get('age').errors?.min && isSubmitted" class="text-danger" >age must be between 20 and 40 years</div>
+<div *ngIf="form.get('age').errors?.max && isSubmitted" class="text-danger" >age must be between 20 and 40 years</div>
+
+
+    </div>
+    
+
+
+<div>
+    <input
+    formControlName="isHired"
+     type="checkbox"
+      class="custom-control-input" 
+      id="isHired"
+      formControlName="isHired"
+      >
+    <label class="custom-control-label" for="isHired">Is Hired</label>
+
+</div>
+<div *ngIf="form.get('isHired').errors?.required && isSubmitted" class="text-danger" >this field is required</div>
+
+    <button
+    type="submit"
+    >
+    Submit
+ </button>
+
+    </form>
+
+    <button 
+    (click)="onCancle()"
+    style="width: 50%; margin-left: 25%;"
+    > 
+    Cancel
+    </button>
+
+</div>
+</div>

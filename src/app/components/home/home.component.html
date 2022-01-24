@@ -1,0 +1,43 @@
+<div class="container" style="margin-top: 20px;">
+  <h2 class="text-center">Your Information</h2>
+<table class="table" style="border: 2px solid rgb(128, 103, 103);
+">
+    <thead>
+      <tr>
+
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">FamilyName</th>
+        <th scope="col">Address</th>
+        <th scope="col">Country</th>
+
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Hired</th>
+        <th scope="col">Delete</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of homeSer.tasks; index as i">
+        <td>{{task.id}}</td>
+        <td>{{task.name}}</td>
+        <td>{{task.familyName}}</td>
+        <td>{{task.address}}</td>
+        <td>{{task.country}}</td>
+        <td>{{task.email}}</td>
+        <td>{{task.age}}</td>
+        <td>{{task.isHired}}</td> 
+
+        <td> <button class="btn btn-danger" (click)="deleteTask(i)">Delete</button></td>
+ 
+      </tr>
+
+    </tbody>
+  </table>
+    <button class="btn btn-success text-center" 
+    style="margin: auto 40%; width: 210px; margin-top: 10px;"
+    routerLink='form'
+    >Add your information</button>
+</div>
